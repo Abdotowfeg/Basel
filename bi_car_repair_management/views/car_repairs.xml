@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <record id="seq_car_repair" model="ir.sequence">
+		    <field name="name">Car Repair</field>
+		    <field name="code">car.repair.seq</field>
+		    <field name="prefix">CR-000</field>
+		    <field name="padding">2</field>
+	    </record>
+	
+	    
+        <record id="car_repair_form_view" model="ir.ui.view">
+		    <field name="name">car.repair.form.view</field>
+		    <field name="model">car.repair</field>
+		    <field name="arch" type="xml">
+			    <form>
+			        <header>
+					<button name="set_to_close" string="Set To Close" type="object"
+						class="btn-primary" attrs="{'invisible': [('is_car_closed', '=', True)]}"/>
+					<button name="create_car_diagnosys" string="Create Car Diagnosis" type="object"
+						class="btn-primary" />
+					<button name="create_car_workorder" string="Create Work Order" type="object"
+						class="btn-primary" />
+					<field name="stage" widget="statusbar" clickable="True" options="{'clickable': '1'}"/>
+				</header>
+				    <sheet string="Car Repair">
+				        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="car_diagnosys_button" class="oe_stat_button" icon="fa-pencil-square" attrs="{'invisible': [('car_diagnosys_count', '=', 0)]}">
+                                <field name="car_diagnosys_count" widget="statinfo" string="Car Diagnosis" />
+                            </button>
+                            <button type="object" name="car_workorder_button" class="oe_stat_button" icon="fa-wrench" attrs="{'invisible': [('car_workorder_count', '=', 0)]}">
+                                <field name="car_workorder_count" widget="statinfo" string="Car Work Orders" />
+                            </button>
+                            <button class="oe_stat_button" name="attachment_on_car_repair_button" type="object" icon="fa-cloud-upload" attrs="{'invisible': [('attachment_count', '=', 0)]}">
+	                        <field name="attachment_count" widget="statinfo" string="Attachment"/>
+	                    </button>
+                        </div>
+                    
+					    <div class="oe_title">
+							<h1 class="o_row">
+								<field name="sequence" />
+							</h1>
+						</div>
+						<div class="oe_title">
+						    <h1 class="o_row">
+								    <field name="name" />
+							</h1>
+						</div>
+						
+					    <group>
+						    <group>
+						    	<field name="partner_id" />
+							    <field name="client_phone" />
+							    <field name="client_email"/>
+							    <field name="priority" widget="priority"/> 
+						    </group>
+						    <group>
+							    <field name="technician_id" />
+							    <field name="company_id"/>
+							    <field name="car_repair_team_id"/>
+							    <field name="is_car_closed" invisible="1"/>
+						    </group>
+					    </group>
+					    <separator />
+
+					    <separator string="Car Information"/>
+					    <group>
+						    <group>
+							    <field name="fleet_id"/>
+							    <field name="model"/>
+							    <field name="brand"/>
+							    <field name="license_plate"/>
+							    <field name="chassis_number"/>
+							    <field name="is_warranty" />
+						    </group>
+						    <group>
+							    <field name="seats" />
+							    <field name="doors" />
+							    <field name="year"/>
+							    <field name="color"/>
+							    <field name="damage"/>
+						    </group>
+					    </group>
+
+					    <separator />
+					    <group>
+						    <group>
+						    	<field name="project_id" />	
+							    <field name="repair_request_date" />
+							    <field name="is_repaired"/>
+						    </group>
+						    <group>
+							    <field name="close_date" />
+							    <field name="repairing_duration" />
+						    </group>
+					    </group>
+					    <notebook>
+					        <page string="Timesheet">
+					            <field name="timesheet_ids" widget="one2many_list" context="{'default_project_id': project_id}">
+					            	<tree string="Timesheet" editable="bottom">
+					            		<field name="date"/>
+                    					<field name="user_id"/>
+					            		<field name="project_id"/>
+					            		<field name="type_id" required="1"/>
+					            		<field name="total_cost" widget="monetary" sum="Total Cost" options="{'currency_field':'currency_id'}"/>
+					            		<field name="name"/>
+									    <field name="unit_amount" string="Duration (Hours)" widget="timesheet_uom" sum="Total"/>
+									    <field name="company_id" invisible="1"/>  
+									    <field name="currency_id" invisible="1"/>
+					            	</tree>		
+								</field>
+								<!-- <field name="timesheet_ids" widget="one2many_list">
+								</field> -->
+					        </page>
+					        <page string="General Information">
+					            <group>
+					                <group>
+					                    <field name="car_services_id"/>
+					                    <field name="car_service_type_id"  widget="many2many_tags"/>
+					                </group>
+					                <group>
+					                    <field name="problem"/>
+					                </group>
+					            </group>
+					        </page>
+					        <page string="Product Consume Parts">
+					            <field name="car_consume_ids" widget="one2many_list">
+									<tree string="Product Consume Parts" editable="bottom">
+									    <field name="product_id" domain="[('is_car_parts', '=', 1)]"/>
+									    <field name="quantity"/>
+									    <field name="uom_id"/>
+									    
+									</tree>
+								</field>
+					        </page>
+					        <page string="Customer Ratings">
+	                            <group>
+	                                <field name="customer_rating" widget="priority"/>
+	                                <field name="comment"/>
+	                            </group>
+	                        </page>
+					        <page string="Car Images">
+					            <field name="images_ids" mode="kanban">
+                                    <kanban>
+                                        <field name="id"/>
+                                        <field name="mimetype"/>
+                                        <field name="type"/>
+                                        
+                                        <field name="name"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click">
+                                                    <div class="oe_kanban_vignette">
+                                                        <div class="oe_attachment">
+                                                            <div class="oe_name">
+                                                                <field name="name"/>
+                                                            </div>
+                                                            <div t-if="record.type.raw_value == 'binary'">
+                                                                <a t-attf-href="/web/content/#{record.id.raw_value}?download=1">
+                                                                    <t t-set="webimage" t-value="new RegExp('image.*(gif|jpeg|jpg|png)').test(record.mimetype.value)"/>
+                                                                    <div t-if="!webimage" class="o_image" t-att-data-mimetype="record.mimetype.value"/>
+                                                                    <div t-if="webimage" class="o_attachment_image">
+                                                                        <img t-attf-src="/web/image/#{record.id.raw_value}?download=1"/>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                     </kanban>
+                                 </field>
+					        </page>
+					    </notebook>
+					    <separator string="Car Description"/>
+						    <field name="accompanying_item"/>
+				    </sheet>
+				    <div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+	                </div>
+			    </form>
+		    </field>
+	    </record>
+	
+	<record id="car_repair_tree_view" model="ir.ui.view">
+		<field name="name">car.repair.tree.view</field>
+		<field name="model">car.repair</field>
+		<field name="arch" type="xml">
+			<tree string="Car Repair">
+				<field name="name" />
+				<field name="technician_id" />
+				<field name="partner_id" />
+				<field name="car_repair_team_id"/>
+			    <field name="car_service_type_id"/>
+			    <field name="repair_request_date" />
+			    <field name="fleet_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Car Repair Kanban View  -->
+        <record model="ir.ui.view" id="view_car_repair_kanban">
+            <field name="name">machinr.repair.kanban</field>
+            <field name="model">car.repair</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="technician_id"/>
+                    <field name="repair_request_date"/>
+                    <field name="stage"/>
+                    <field name="priority"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title"><b><span><t t-esc="record.sequence.value"/></span></b></strong>
+                                    </div>
+                                    <strong><field name="stage" /></strong>
+                                </div>
+                                <div class="o_primary">
+                                    <span><t t-esc="record.name.value"/></span>
+                                </div>
+                                <div class="o_primary">
+                                    <span><t t-esc="record.technician_id.value"/></span>
+                                </div>
+                                <div class="o_primary">
+                                    <field name="repair_request_date"/>
+                                </div>
+                                <div class="o_primary">
+                                    <strong><span><t t-esc="record.priority.value"/></span></strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+	<record id="action_car_repair" model="ir.actions.act_window">
+		<field name="name">Car Repair</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.repair</field>
+		<field name="view_mode">kanban,tree,form</field>
+	</record>
+	
+    <!-- Car Diagnosys -->
+        <record id="car_diagnosys_form_view" model="ir.ui.view">
+		    <field name="name">car.diagnosys.form.view</field>
+		    <field name="model">car.diagnosys</field>
+		    <field name="arch" type="xml">
+			    <form>
+			        <header>
+					<button name="create_quotation" string="Create Quotation" type="object"
+						class="btn-primary"/>
+					<button name="consume_car_parts" string="Consume Car Parts" type="object"
+						class="btn-primary" />
+				</header>
+				    <sheet string="Car Diagnosis">
+				        <div class="oe_button_box" name="button_box">
+							<button name="toggle_active" type="object" class="oe_stat_button"
+								icon="fa-archive">
+								<field name="active" widget="boolean_button"
+									options="{&quot;terminology&quot;: &quot;archive&quot;}" />
+							</button>
+							<button type="object" name="quotation_button" class="oe_stat_button" icon="fa-usd" attrs="{'invisible': [('quotation_count', '=', 0)]}">
+                                <field name="quotation_count" widget="statinfo" string="Quotations" />
+                            </button>
+                            <button type="object" name="picking_button" class="oe_stat_button" icon="fa-truck" attrs="{'invisible': [('picking_count', '=', 0)]}" groups="base.group_user">
+		                        <field name="picking_count" widget="statinfo" string="Picking"/>
+		                    </button>
+						</div>
+						<div class="oe_title">
+						    <h1 class="o_row">
+						        <field name="priority" widget="priority" />
+							    <field name="name" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="fleet_id"/>
+								<field name="license_plate"/>
+							</group>
+						</group>
+						
+					    <group>
+						    <group>
+							    <field name="project_id" />
+							    <field name="assigned_to"/>
+							    <field name="initially_planned_hour"/>
+						    </group>
+						    <group>
+							    <field name="deadline_date" />
+							    <field name="tag_ids" />
+						    </group>
+					    </group>
+					    
+					    <notebook>
+					        <page string="Description">
+					            <field name="description"/>
+					        </page>
+					        <page string="Timesheet">
+					            <field name="timesheet_ids" widget="one2many_list" context="{'default_project_id': project_id, 'default_car_repair_timesheet_id': car_repair_id, }">
+					            	<tree string="Timesheet" editable="bottom">
+					            		<field name="date"/>
+                    					<field name="user_id"/>
+					            		<field name="project_id"/>
+					            		<field name="type_id" required="1"/>
+					            		<field name="total_cost" widget="monetary" sum="Total Cost" options="{'currency_field':'currency_id'}"/>
+					            		<field name="name"/>
+									    <field name="unit_amount" string="Duration (Hours)" widget="timesheet_uom" sum="Total" />
+									    <field name="company_id" invisible="1"/>
+									    <field name="currency_id" invisible="1"/>
+									    <field name="car_repair_timesheet_id" invisible="1"/>
+					            	</tree>		
+								</field>
+								<group class="oe_subtotal_footer oe_right" colspan="2">
+									<field name="hours_spent"/>
+									<field name="remaining_hours"/>
+								</group>
+					        </page>
+					        
+					        <page string="Car Repair Estimation">
+					            <field name="car_repair_estimation_ids" widget="one2many_list">
+									<tree string="Car Repair Estimation" editable="bottom">
+									    <field name="product_id" domain="[('is_car_parts', '=', 1)]"/>
+									    <field name="quantity"/>
+									    <field name="uom_id"/>
+									    <field name="price"/>
+									    <field name="notes"/>
+									</tree>
+								</field>
+					        </page>
+					        
+					        <page string="Extra Info">
+					            <group>
+					                <group>
+    					                <field name="partner_id"/>
+    					            </group>
+    					            <group>
+    					                <field name="car_repair_id"/>
+    					                <field name="type_id"/>
+    					            </group>
+					            </group>
+					        </page>
+					    </notebook>
+				    </sheet>
+			    </form>
+		    </field>
+	    </record>		
+	    
+	    <record id="car_diagnosys_tree_view" model="ir.ui.view">
+		<field name="name">car.diagnosys.tree.view</field>
+		<field name="model">car.diagnosys</field>
+		<field name="arch" type="xml">
+			<tree string="Car Diagnosis">
+				<field name="name" />
+				<field name="project_id" />
+			    <field name="assigned_to"/>
+			    <field name="initially_planned_hour"/>
+			    <field name="deadline_date" />
+			</tree>
+		</field>
+	</record>
+
+	<!-- Car Repair Kanban View  -->
+        <record model="ir.ui.view" id="view_car_diagnosys_kanban">
+            <field name="name">machinr.diagnosys.kanban</field>
+            <field name="model">car.diagnosys</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <field name="assigned_to"/>
+                    <field name="partner_id"/>
+                    <field name="car_repair_id"/>
+                    <field name="priority"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title"><b><span><t t-esc="record.name.value"/></span></b></strong>
+                                    </div>
+                                    <strong><field name="priority" /></strong>
+                                </div>
+                                <div class="o_primary">
+                                    <span><t t-esc="record.assigned_to.value"/></span>
+                                </div>
+                                <div class="o_primary">
+                                    <span><t t-esc="record.partner_id.value"/></span>
+                                </div>
+                                <div class="o_primary">
+                                    <field name="car_repair_id"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+	<record id="action_car_diagnosys" model="ir.actions.act_window">
+		<field name="name">Car Diagnosis</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.diagnosys</field>
+		<field name="view_mode">kanban,tree,form</field>
+	</record>
+	
+    <!-- Car WorkOrder -->
+        <record id="car_workorder_form_view" model="ir.ui.view">
+		    <field name="name">car.workorder.form.view</field>
+		    <field name="model">car.workorder</field>
+		    <field name="arch" type="xml">
+			    <form>
+				    <sheet string="Car Workorder">
+				        <div class="oe_button_box" name="button_box">
+							<button name="toggle_active" type="object" class="oe_stat_button"
+								icon="fa-archive">
+								<field name="active" widget="boolean_button"
+									options="{&quot;terminology&quot;: &quot;archive&quot;}" />
+							</button>
+						</div>
+						<div class="oe_title">
+						    <h1 class="o_row">
+						        <field name="priority" widget="priority" />
+							    <field name="name" />
+							</h1>
+						</div>
+						<group>
+							<group>
+								<field name="fleet_id"/>
+								<field name="license_plate"/>
+							</group>
+						</group>
+
+					    <group>
+						    <group>
+							    <field name="project_id" />
+							    <field name="assigned_to"/>
+							    <field name="initially_planned_hour"/>
+						    </group>
+						    <group>
+							    <field name="deadline_date" />
+							    <field name="tag_ids" />
+						    </group>
+					    </group>
+					    
+					    <notebook>
+					        <page string="Description">
+					            <field name="description"/>
+					        </page>
+					        <page string="Timesheet">
+					            <field name="workorder_timesheet_ids" widget="one2many_list" context="{'default_project_id':project_id,'default_car_repair_timesheet_id': car_repair_id, }">
+					            	<tree string="Timesheet" editable="bottom">
+					            		<field name="date"/>
+                    					<field name="user_id"/>
+					            		<field name="project_id"/>
+					            		<field name="type_id" required="1"/>
+					            		<field name="total_cost" widget="monetary" sum="Total Cost" options="{'currency_field':'currency_id'}"/>
+					            		<field name="name"/>
+									    <field name="unit_amount" string="Duration (Hours)" widget="timesheet_uom" sum="Total"/>
+									    <field name="company_id" invisible="1"/>  
+									    <field name="currency_id" invisible="1"/>
+									    <field name="car_repair_timesheet_id" invisible="1"/>
+					            	</tree>
+								</field>
+								<group class="oe_subtotal_footer oe_right" colspan="2">
+									<field name="hours_spent"/>
+									<field name="remaining_hours"/>
+								</group>
+					        </page>
+					        
+					        <page string="Extra Info">
+					            <group>
+					                <group>
+    					                <field name="partner_id"/>
+    					            </group>
+    					            <group>
+    					                <field name="car_repair_id"/>
+    					                <field name="type_id"/>
+    					            </group>
+					            </group>
+					        </page>
+					    </notebook>
+				    </sheet>
+			    </form>
+		    </field>
+	    </record>		
+	    
+	    <record id="car_workorder_tree_view" model="ir.ui.view">
+		<field name="name">car.workorder.tree.view</field>
+		<field name="model">car.workorder</field>
+		<field name="arch" type="xml">
+			<tree string="Car Workorder">
+				<field name="name" />
+				<field name="project_id" />
+			    <field name="assigned_to"/>
+			    <field name="initially_planned_hour"/>
+			    <field name="deadline_date" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_car_workorder" model="ir.actions.act_window">
+		<field name="name">Car Workorder</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.workorder</field>
+		<field name="view_mode">tree,form</field>
+	</record>	
+	    
+		<menuitem id="main_sub_menu_car_repair" parent="main_menu_car_repair" name="Car Repairs" sequence="1"/>
+		
+		<menuitem id="menu_car_repair_ticket" parent="main_sub_menu_car_repair" name="Car Repair" action="action_car_repair" sequence="1"/>
+		<!-- <menuitem id="menu_car_diagnosys" parent="main_sub_menu_car_repair" name="Car Diagnosis" action="action_car_diagnosys" sequence="2"/> -->
+		<!-- <menuitem id="menu_car_work_order" parent="main_sub_menu_car_repair" name="Car WorkOrders" action="action_car_workorder" sequence="3"/> -->
+
+
+		<menuitem id="menu_car_diagnosys"  name="Car Diagnosis" action="action_car_diagnosys" />
+		<menuitem id="menu_car_work_order"  name="Car WorkOrders" action="action_car_workorder" />
+
+	</data>
+</odoo>
+ 

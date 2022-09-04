@@ -1,0 +1,1631 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* bi_car_repair_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20220201\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-09 11:39+0000\n"
+"PO-Revision-Date: 2022-03-09 13:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: bi_car_repair_management
+#: model:mail.template,body_html:bi_car_repair_management.email_template_car_repair
+#, fuzzy
+msgid ""
+"\n"
+"<p>Dear ${object.partner_id.name}\n"
+",</p>\n"
+"<p>\n"
+"We have closed your car repair request now.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Thanks for your Participation...!\n"
+"</p>    \n"
+"\n"
+"<p>You can reply to this email if you have any questions.</p>\n"
+"<p>Thank you,</p>\n"
+"\n"
+"<p style=\"color:#888888;\">\n"
+"% if object.technician_id and object.technician_id.signature:\n"
+"    ${object.technician_id.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+msgstr ""
+"\n"
+"<p>عزيزي $ {object.partner_id.name}\n"
+",</p>\n"
+"<p>لقد أغلقنا طلب إصلاح سيارتك الآن.</p>\n"
+"\n"
+"<p>شكرا لمشاركتك...!</p>    \n"
+"\n"
+"<p>يمكنك الرد على هذا البريد الإلكتروني إذا كان لديك أي أسئلة.</p>\n"
+"<p>شكرًا لك</p>\n"
+"\n"
+"<p style=\"color:#888888;\">\n"
+"% iو object.technician_id و object.technician_id.signature:\n"
+"    ${object.technician_id.signature | آمنة}\n"
+"% endif</p>\n"
+
+#. module: bi_car_repair_management
+#: model:mail.template,subject:bi_car_repair_management.email_template_car_repair
+#, fuzzy
+msgid "${object.name} ${object.sequence or 'n/a' }"
+msgstr "${object.name} ${object.sequence أو 'n/a' }"
+
+#. module: bi_car_repair_management
+#: code:addons/bi_car_repair_management/model/car_management.py:0
+#, fuzzy, python-format
+msgid "%s customer has no email id please enter email address"
+msgstr ""
+"%s العميل ليس لديه معرف البريد الإلكتروني يرجى إدخال عنوان البريد الإلكتروني"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.header
+#, fuzzy
+msgid ""
+"<span class=\"Text\">\n"
+"\t\t\t\t\t\tCar Repair\n"
+"\t\t\t\t\t</span>\n"
+"\t\t\t\t\t<span class=\"caret\"/>"
+msgstr ""
+"<span class=\"Text\">إصلاح السيارات</span>\n"
+"\t\t\t\t\t<span class=\"caret\"/>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_rating_thank_you
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_thank_you
+#, fuzzy
+msgid ""
+"<span class=\"fa fa-long-arrow-left\"/>\n"
+"\t\t\t\t\t\t\t\tGo Back"
+msgstr "<span j=\"0/\">الرجوع للخلف</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+msgid "<span style=\"margin-left: 5px;\">Brand</span>"
+msgstr "<span style=\"margin-left: 5px;\">ماركة</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+#, fuzzy
+msgid "<span style=\"margin-left: 5px;\">Client</span>"
+msgstr "<span style=\"margin-left: 5px;\">عميل</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+#, fuzzy
+msgid "<span style=\"margin-left: 5px;\">Date</span>"
+msgstr "<span style=\"margin-left: 5px;\">تاريخ</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+#, fuzzy
+msgid "<span style=\"margin-left: 5px;\">Description</span>"
+msgstr "<span style=\"margin-left: 5px;\">وصف</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+msgid "<span style=\"margin-left: 5px;\">License Plate</span>"
+msgstr "<span style=\"margin-left: 5px;\">لوحه السيارة</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+msgid "<span style=\"margin-left: 5px;\">Model</span>"
+msgstr "<span style=\"margin-left: 5px;\">موديل</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_label_template_view
+#, fuzzy
+msgid "<span style=\"margin-left: 5px;\">Year</span>"
+msgstr "<span style=\"margin-left: 5px;\">سنة</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<span>No</span>"
+msgstr "<span>لا</span>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Accompanying Items : </strong>"
+msgstr "<strong>العناصر المصاحبة : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "<strong>Brand : </strong>"
+msgstr "<strong>ماركة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Car : </strong>"
+msgstr "<strong>سيارة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "<strong>Car Repair Details</strong>"
+msgstr "<strong>تفاصيل إصلاح السيارات</strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Client : </strong>"
+msgstr "<strong>عميل: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Close Date : </strong>"
+msgstr "<strong>تاريخ الإغلاق : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Color : </strong>"
+msgstr "<strong>لون: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Company : </strong>"
+msgstr "<strong>شركة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Create Date : </strong>"
+msgstr "<strong>تاريخ الإنشاء : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Customer : </strong>"
+msgstr "<strong>زبون: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Email : </strong>"
+msgstr "<strong>البريد الإلكتروني: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid ""
+"<strong>Is Car Repaired ? : </strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<span>No</span>"
+msgstr ""
+"<strong>هل تم إصلاح السيارة ؟ : </strong> <span>لا</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid ""
+"<strong>Is Car Repaired ? : </strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<span>Yes</span>"
+msgstr ""
+"<strong>هل تم إصلاح السيارة ؟ : </strong> <span>نعم</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Is Required : </strong>"
+msgstr "<strong>مطلوب : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "<strong>License Plate : </strong>"
+msgstr "<strong>لوحه السيارة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "<strong>Model : </strong>"
+msgstr "<strong>موديل: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "<strong>Personal Details</strong>"
+msgstr "<strong>التفاصيل الشخصية</strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Phone : </strong>"
+msgstr "<strong>الهاتف: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Priority : </strong>"
+msgstr "<strong>أولوية: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Problem : </strong>"
+msgstr "<strong>مشكلة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Project : </strong>"
+msgstr "<strong>مشروع: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Repair Date : </strong>"
+msgstr "<strong>تاريخ الإصلاح : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Requested Date : </strong>"
+msgstr "<strong>التاريخ المطلوب : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "<strong>Send Message and Attachments</strong>"
+msgstr "<strong>إرسال الرسائل والمرفقات</strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+msgid "<strong>Support Team : </strong>"
+msgstr "<strong>فريق الاصلاح : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Technician : </strong>"
+msgstr "<strong>فني الصيانة: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Total Hours Spent Repair : </strong>"
+msgstr "<strong>مجموع الساعات التي تم قضاءها في الإصلاح : </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Warranty : </strong>"
+msgstr "<strong>الضمان: </strong>"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "<strong>Year : </strong>"
+msgstr "<strong>سنة: </strong>"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__access_warning
+msgid "Access warning"
+msgstr "تحذير بالوصول"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__accompanying_item
+#, fuzzy
+msgid "Accompanying Items"
+msgstr "العناصر المصاحبة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء مطلوب"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__active
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "البند التحليلي"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__assigned
+msgid "Assigned"
+msgstr "مسندة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__assigned_to
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__assigned_to
+msgid "Assigned To"
+msgstr "تم التعيين إلى"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Attach Files"
+msgstr "إرفاق ملفات"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_ir_attachment
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+msgid "Attachment"
+msgstr "مرفق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__attachment_count
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__customer_rating__2
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Average"
+msgstr "متوسط"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__brand
+msgid "Brand"
+msgstr "علامة تجارية"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Car"
+msgstr "سيارة "
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "Car Brand"
+msgstr "العلامة التجارية للسيارات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Car Description"
+msgstr "وصف السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_diagnosys
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_diagnosys_count
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_sale_order__diagnose_id
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_car_diagnosys
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_tree_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Car Diagnosis"
+msgstr "تشخيص السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__timesheet_id
+#, fuzzy
+msgid "Car Diagnosys"
+msgstr "تشخيص السيارات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Car Images"
+msgstr "صور السيارة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Car Information"
+msgstr "معلومات  السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.report,name:bi_car_repair_management.car_repair_label_report_id
+msgid "Car Label"
+msgstr "ملصق السيارة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "Car Manufacturing Year"
+msgstr "سنة تصنيع السيارات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Car Model"
+msgstr "موديل  السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_product_product__is_car_parts
+#: model:ir.ui.menu,name:bi_car_repair_management.main_menu_cars
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_car_parts
+#, fuzzy
+msgid "Car Parts"
+msgstr "قطع غيار السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_repair
+#: model:ir.actions.report,name:bi_car_repair_management.car_repair_report_id
+#: model:ir.model,name:bi_car_repair_management.model_car_repair
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__car_repair_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__car_repair_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_ir_attachment__car_repair_id
+#: model:ir.module.category,name:bi_car_repair_management.module_category_car_repair
+#: model:ir.ui.menu,name:bi_car_repair_management.main_menu_car_repair
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_car_repair_ticket
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_tree_view
+msgid "Car Repair"
+msgstr "إستقبال تصليح سيارات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+#, fuzzy
+msgid "Car Repair Customer Rating"
+msgstr "تقييم العملاء لإصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__car_repair_estimation_ids
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__car_repair_estimation_ids
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#, fuzzy
+msgid "Car Repair Estimation"
+msgstr "تقدير تكلفة إصلاح السيارة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.header
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_home_car_repair
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_home_menu_car_repair
+#, fuzzy
+msgid "Car Repair Request"
+msgstr "طلب إصلاح سيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_repair_team
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_repair_team_id
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_team_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_team_tree_view
+#, fuzzy
+msgid "Car Repair Team"
+msgstr "فريق إصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_car_repair_team
+#, fuzzy
+msgid "Car Repair Teams"
+msgstr "فرق إصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__car_repair_timesheet_id
+#, fuzzy
+msgid "Car Repair Timesheet"
+msgstr "الجدول الزمني لإصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.ui.menu,name:bi_car_repair_management.main_sub_menu_car_repair
+#, fuzzy
+msgid "Car Repairs"
+msgstr "إصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_home_menu_car_repair
+#, fuzzy
+msgid "Car Request"
+msgstr "طلب  سيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__name
+#, fuzzy
+msgid "Car Service"
+msgstr "خدمة السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_service_type
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_service_type_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_service_type_tree_view
+#, fuzzy
+msgid "Car Service Type"
+msgstr "نوع خدمة السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_services
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_services_id
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_services_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_services_tree_view
+#, fuzzy
+msgid "Car Services"
+msgstr "خدمات السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_workorder_count
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__workorder_id
+#, fuzzy
+msgid "Car Work Order"
+msgstr "أمر عمل السيارة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Car Work Orders"
+msgstr "أوامر اصلاح السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_car_work_order
+msgid "Car WorkOrders"
+msgstr "أوامر اصلاح السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.action_car_workorder
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__car_workorder_id
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_tree_view
+msgid "Car Workorder"
+msgstr "طلب عمل السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.actions.act_window,name:bi_car_repair_management.fleet_action_car
+#: model:ir.actions.act_window,name:bi_car_repair_management.product_normal_action_car_parts
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_fleet
+msgid "Cars"
+msgstr "السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__chassis_number
+msgid "Chassis Number"
+msgstr "رقم الشاسيه"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.actions.act_window,help:bi_car_repair_management.product_normal_action_car_parts
+msgid "Click to define a new product."
+msgstr "اضغط لتعيين منتج جديد."
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#, fuzzy
+msgid "Client Information"
+msgstr "معلومات العميل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__close_date
+msgid "Close Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__code
+msgid "Code"
+msgstr "كود"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__color
+msgid "Color"
+msgstr "اللون"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__color
+#, fuzzy
+msgid "Color of the vehicle"
+msgstr "لون السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__comment
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Comment"
+msgstr "تعليق"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__company_id
+msgid "Company"
+msgstr "الشركة / الفرع"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: bi_car_repair_management
+#: model:ir.ui.menu,name:bi_car_repair_management.main_menu_configuration
+msgid "Configuration"
+msgstr "ترتيب"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#, fuzzy
+msgid "Consume Car Parts"
+msgstr "تحتاج الي قطع غيار "
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company__consume_parts
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings__consume_parts
+#, fuzzy
+msgid "Consume Parts from Stock"
+msgstr "تستهلك أجزاء من المخزون"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company__location_dest_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings__location_dest_id
+#, fuzzy
+msgid "Consumed Part Location"
+msgstr "موقع الجزء المستهلك"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__total_cost
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__cost
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Create Car Diagnosis"
+msgstr "إنشاء تشخيص السيارة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+msgid "Create Quotation"
+msgstr "إنشاء عرض السعر"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.custom_inventory_settings
+#, fuzzy
+msgid ""
+"Create Stock Picking for consumed parts from Source Location to Consumed "
+"parts Location."
+msgstr ""
+"إنشاء انتقاء المخزون للأجزاء المستهلكة من موقع المصدر إلى موقع الأجزاء "
+"المستهلكة."
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Create Work Order"
+msgstr "إنشاء أمر اصلاح"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__create_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__create_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__partner_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__partner_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__partner_id
+msgid "Customer"
+msgstr "العميل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__access_url
+msgid "Customer Portal URL"
+msgstr "رابط بوابة العملاء"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__customer_rating
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+msgid "Customer Rating"
+msgstr "تصنيف العميل"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+msgid "Customer Ratings"
+msgstr "تقييمات العميل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__damage
+msgid "Damage"
+msgstr "الضرر"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__deadline_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__deadline_date
+msgid "Deadline"
+msgstr "الموعد النهائي"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__description
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__description
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__description
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+msgid "Description"
+msgstr "الوصف"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_ir_attachment__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_product_product__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_sale_order__display_name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_website__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__doors
+#, fuzzy
+msgid "Doors"
+msgstr "أبواب"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+#, fuzzy
+msgid "Duration (Hours)"
+msgstr "المدة (ساعات)"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__client_email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__customer_rating__4
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Excellent"
+msgstr "ممتاز"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+msgid "Extra Info"
+msgstr "معلومات إضافية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_diagnosys__priority__0
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__customer_rating__0
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__priority__0
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_workorder__priority__0
+msgid "False"
+msgstr "خطأ"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__fleet_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__fleet_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__fleet_id
+msgid "Fleet"
+msgstr "السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_follower_ids
+msgid "Followers"
+msgstr "متابعون"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+msgid "General Information"
+msgstr "معلومات عامة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__customer_rating__3
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Good"
+msgstr "جيد"
+
+#. module: bi_car_repair_management
+#: model:ir.module.category,description:bi_car_repair_management.module_category_car_repair
+#, fuzzy
+msgid "Helps you manage your Car Repairing."
+msgstr "يساعدك على إدارة إصلاح سيارتك."
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_diagnosys__priority__3
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__priority__3
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_workorder__priority__3
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "High"
+msgstr "مرتفع"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__hours_spent
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__hours_spent
+msgid "Hours Spent"
+msgstr "عدد الساعات المستغرق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_ir_attachment__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_product_product__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_sale_order__id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_website__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_needaction
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "عند التفعيل ، رسائل جديدة ستتطلب انتباهك"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_has_error
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده ، فإن بعض الرسائل بها خطأ في التسليم."
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__images_ids
+msgid "Images"
+msgstr "الصور"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__initially_planned_hour
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__initially_planned_hour
+#, fuzzy
+msgid "Initially Planned Hour"
+msgstr "عدد ساعات العمل المقدرة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company__location_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings__location_id
+msgid "Inventory Location"
+msgstr "موقع الجرد"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__is_car_closed
+#, fuzzy
+msgid "Is Car Closed"
+msgstr "هل السيارة مغلقة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__is_default_team
+#, fuzzy
+msgid "Is Default Team"
+msgstr "هو الفريق الافتراضي"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_is_follower
+msgid "Is Follower"
+msgstr "هو تابع"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__is_repaired
+#, fuzzy
+msgid "Is Repaired"
+msgstr "تم إصلاحه"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_ir_attachment____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_product_product____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_company____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_sale_order____last_update
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_website____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__write_uid
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_services__write_date
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__leader_id
+msgid "Leader"
+msgstr "المسئول"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__license_plate
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__license_plate
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__license_plate
+msgid "License Plate"
+msgstr "رقم اللوحة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_diagnosys__license_plate
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__license_plate
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_workorder__license_plate
+msgid "License plate number of the vehicle (i = plate number for a car)"
+msgstr "رقم لوحة المركبة (i = رقم لوحة المركبة)"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "List Of Damage"
+msgstr "قائمة الأضرار"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_diagnosys__priority__1
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__priority__1
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_workorder__priority__1
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Low"
+msgstr "منخفض"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفقات الرئيسية"
+
+#. module: bi_car_repair_management
+#: model:res.groups,name:bi_car_repair_management.group_car_repair_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__brand
+msgid "Manufacturer of the vehicle"
+msgstr "الشركة المصنعة للمركبة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ تسليم الرسالة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__model
+msgid "Model"
+msgstr "موديل السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__year
+msgid "Model Year"
+msgstr "سنة الصنع"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__model
+msgid "Model of the vehicle"
+msgstr "موديل المركبة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_view
+#, fuzzy
+msgid "My Car Repair Request"
+msgstr "طلب إصلاح سيارتي"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__name
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__needs_reply
+#, fuzzy
+msgid "Needs Reply"
+msgstr "في انتظار رد الفني"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__new
+msgid "New"
+msgstr "جديد"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_diagnosys__priority__2
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__priority__2
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_workorder__priority__2
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Normal"
+msgstr "عادي"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__notes
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__doors
+#, fuzzy
+msgid "Number of doors of the vehicle"
+msgstr "عدد أبواب السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__seats
+#, fuzzy
+msgid "Number of seats of the vehicle"
+msgstr "عدد مقاعد السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Other Information"
+msgstr "معلومات أخرى"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__client_phone
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__picking_count
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+msgid "Picking"
+msgstr "إلتقاط"
+
+#. module: bi_car_repair_management
+#: code:addons/bi_car_repair_management/model/car_management.py:0
+#, fuzzy, python-format
+msgid ""
+"Please select the Consume Parts option in Inventory Settings to consume Car "
+"Parts"
+msgstr ""
+"الرجاء تحديد الخيار استهلاك أجزاء في إعدادات المخزون لاستهلاك قطع غيار "
+"السيارات"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__customer_rating__1
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Poor"
+msgstr "ضعيف"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__access_url
+msgid "Portal Access URL"
+msgstr "رابط الوصول لبوابة العملاء"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__price
+msgid "Price"
+msgstr "السعر"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__priority
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__priority
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__priority
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__problem
+msgid "Problem"
+msgstr "المشكله"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_product_product
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__product_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_service_type__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__product_consume_id
+msgid "Product Consume"
+msgstr "قطع استهلاكية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_consume_ids
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+msgid "Product Consume Parts"
+msgstr "قطع غيار استهلاكية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__project_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__project_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__project_id
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Project"
+msgstr "مشروع"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__quotation_count
+msgid "Quotation"
+msgstr "عرض سعر"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+msgid "Quotations"
+msgstr "عروض السعر"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Rating"
+msgstr "تقييم"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "Reason For Repair"
+msgstr "سبب الإصلاح"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Reason For Repair In Details"
+msgstr "سبب الإصلاح  بالتفاصيل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__remaining_hours
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__remaining_hours
+#, fuzzy
+msgid "Remaining Hours"
+msgstr "الساعات المتبقية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__reopen
+msgid "Reopened"
+msgstr "إعادة الاصلاح"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__repair_request_date
+#, fuzzy
+msgid "Repair Request Date"
+msgstr "تاريخ طلب الإصلاح"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__car_service_type_id
+#, fuzzy
+msgid "Repair Type"
+msgstr "نوع الإصلاح"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__repairing_duration
+#, fuzzy
+msgid "Repairing Duration"
+msgstr "مدة الإصلاح"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+#, fuzzy
+msgid "Request No"
+msgstr "رقم الطلب"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_sale_order
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__sale_order_id
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__seats
+msgid "Seats"
+msgstr "المقاعد"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__access_token
+msgid "Security Token"
+msgstr "رمز الحماية"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Select one"
+msgstr "اختر واحداً"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Service"
+msgstr "الخدمة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_account_analytic_line__type_id
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_service_type
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: bi_car_repair_management
+#: model:ir.ui.menu,name:bi_car_repair_management.menu_services
+msgid "Services"
+msgstr "خدمات"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#, fuzzy
+msgid "Set To Close"
+msgstr "إغلاق التذكرة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__solution_suggested
+#, fuzzy
+msgid "Solution Suggested"
+msgstr "الحل المقترح"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__stage
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+msgid "Stage"
+msgstr "مرحلة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_comment
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+#, fuzzy
+msgid "Submit Car Repair Request"
+msgstr "إرسال طلب إصلاح السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__tag_ids
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__tag_ids
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__team_leader_id
+#, fuzzy
+msgid "Team Leader"
+msgstr "قائد الفريق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_team__team_member_ids
+msgid "Team Member"
+msgstr "أعضاء الفريق"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_team_form_view
+msgid "Team Members"
+msgstr "أعضاء الفريق"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__technician_id
+#: model:res.groups,name:bi_car_repair_management.group_car_repair_technician
+#, fuzzy
+msgid "Technician"
+msgstr "فني الصيانة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_rating_thank_you
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_thank_you
+msgid "Thank You"
+msgstr "شكرا لك"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_rating_thank_you
+msgid "Thank you for giving review for Car Repair Request Feedback."
+msgstr "شكرًا لك على تقديم مراجعة لملاحظات طلب إصلاح السيارات."
+
+#. module: bi_car_repair_management
+#: model_terms:ir.actions.act_window,help:bi_car_repair_management.product_normal_action_car_parts
+#, fuzzy
+msgid ""
+"The product form contains information to simplify the sale\n"
+"                process: price, notes in the quotation, accounting data,\n"
+"                procurement methods, etc."
+msgstr ""
+"نموذج المنتج يحتوي على معلومات لتبسيط عملية البيع\n"
+"                العملية: السعر، الملاحظات في عرض الأسعار، بيانات المحاسبة،\n"
+"                طرق الشراء، الخ."
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_service_type__cost
+msgid ""
+"The sale price is managed from the product template. Click on the "
+"'Configure Variants' button to set the extra attribute prices."
+msgstr ""
+"تتم إدارة سعر البيع من قالب المنتج. انقر علي زر 'تهيئة التنوعات' لتعيين "
+"أسعار الخصائص الإضافية."
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+#, fuzzy
+msgid "There are currently no Car Repair Request for your account."
+msgstr "لا يوجد حاليا أي طلب لإصلاح السيارة لحسابك."
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__timesheet_ids
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__timesheet_ids
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+msgid "Timesheet"
+msgstr "سجل المهام للفنيين"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "Timesheets"
+msgstr "سجلات الدوام"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+msgid "Title"
+msgstr "العنوان"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+msgid "Total"
+msgstr "المجموع"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_diagnosys_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_form_view
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_workorder_form_view
+msgid "Total Cost"
+msgstr "التكلفة الإجمالية"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_diagnosys__type_id
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__type_id
+msgid "Type"
+msgstr "النوع"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__chassis_number
+#, fuzzy
+msgid "Unique number written on the vehicle motor (VIN/SN number)"
+msgstr "رقم فريد مكتوب على محرك السيارة (رقم VIN/SN)"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__uom_id
+#, fuzzy
+msgid "Unit Of Measure"
+msgstr "وحدة القياس"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_unread
+msgid "Unread Messages"
+msgstr "الرسائل غير مقروءة"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_template_view
+msgid "User"
+msgstr "المستخدم"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__is_warranty
+msgid "Warranty"
+msgstr "هل لديها تأمين"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.car_repair_request_thank_you
+#, fuzzy
+msgid "We will get back to you shortly"
+msgstr "سنعود إليك قريبا"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_website
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل موقع الانترنت"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل موقع الانترنت"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields.selection,name:bi_car_repair_management.selection__car_repair__stage__work_in_progress
+msgid "Work In Progress"
+msgstr "جاري العمل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_workorder__workorder_timesheet_ids
+#, fuzzy
+msgid "Workorder Timesheet"
+msgstr "الجدول الزمني لرقيم العمل"
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,help:bi_car_repair_management.field_car_repair__year
+msgid "Year of the model"
+msgstr "سنة الموديل"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.actions.act_window,help:bi_car_repair_management.product_normal_action_car_parts
+#, fuzzy
+msgid ""
+"You must define a product for everything you sell, whether it's\n"
+"                a physical product, a consumable or a service you offer to\n"
+"                customers."
+msgstr ""
+"يجب عليك تحديد منتج لكل ما تبيعه ، سواء كان\n"
+"                منتج مادي أو مستهلك أو خدمة تقدمها\n"
+"                الزبائن."
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.portal_my_car_repair
+#, fuzzy
+msgid "Your Car Repair Request"
+msgstr "طلب إصلاح سيارتك"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Your Email"
+msgstr "بريدك الالكتروني"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Your Name"
+msgstr "اسمك"
+
+#. module: bi_car_repair_management
+#: model_terms:ir.ui.view,arch_db:bi_car_repair_management.bi_create_car_repair
+msgid "Your Phone"
+msgstr "هاتفك "
+
+#. module: bi_car_repair_management
+#: model:ir.model.fields,field_description:bi_car_repair_management.field_car_repair_estimate__diagnosys_id
+#, fuzzy
+msgid "car Repair Estimate"
+msgstr "تقدير إصلاح السيارة"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_diagnosys
+#, fuzzy
+msgid "car.diagnosys"
+msgstr "car.diagnosys"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_repair_estimate
+#, fuzzy
+msgid "car.repair.estimate"
+msgstr "car.repair.تقدير"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_repair_team
+#, fuzzy
+msgid "car.repair.team"
+msgstr "car.repair.team"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_service_type
+#, fuzzy
+msgid "car.service.type"
+msgstr "car.service.type"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_services
+#, fuzzy
+msgid "car.services"
+msgstr "car.services"
+
+#. module: bi_car_repair_management
+#: model:ir.model,name:bi_car_repair_management.model_car_workorder
+#, fuzzy
+msgid "car.workorder"
+msgstr "سيارة.وركوردر"

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <record id="custom_product_product_form_view" model="ir.ui.view">
+            <field name="name">product.product.form.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']/div[@name='options']" position="inside">
+                    <div>
+                        <field name="is_car_parts"/>  
+                        <label for="is_car_parts"/> 
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="fleet_action_car" model="ir.actions.act_window">
+            <field name="name">Cars</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fleet.vehicle</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="view_id" eval="False"/> <!-- Force empty -->
+            <!-- <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new Fleet.
+              </p><p>
+                You must define a fleet for everything you sell, whether it's
+                a physical product, a consumable or a service you offer to
+                customers.
+              </p><p>
+                The product form contains information to simplify the sale
+                process: price, notes in the quotation, accounting data,
+                procurement methods, etc.
+              </p>
+            </field> -->
+        </record>
+        
+        <record id="product_normal_action_car_parts" model="ir.actions.act_window">
+            <field name="name">Cars</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('is_car_parts', '=', 1)]</field>
+            <field name="context">{'default_is_car_parts':True}</field>
+            <field name="search_view_id" ref="product.product_search_form_view"/>
+            <field name="view_id" eval="False"/> <!-- Force empty -->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new product.
+              </p><p>
+                You must define a product for everything you sell, whether it's
+                a physical product, a consumable or a service you offer to
+                customers.
+              </p><p>
+                The product form contains information to simplify the sale
+                process: price, notes in the quotation, accounting data,
+                procurement methods, etc.
+              </p>
+            </field>
+        </record>
+        
+		<menuitem id="main_menu_cars" parent="main_menu_car_repair" name="Car Parts" sequence="2"/>
+		
+		<menuitem id="menu_fleet" parent="main_menu_cars" name="Cars" action="fleet_action_car" sequence="1"/>
+		<!-- <menuitem id="menu_car_parts" parent="main_menu_cars" name="Car Parts" action="product_normal_action_car_parts" sequence="2"/> -->
+
+        <menuitem id="menu_car_parts"  name="Car Parts" action="product_normal_action_car_parts" />
+
+	</data>
+</odoo>
+ 

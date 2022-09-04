@@ -1,0 +1,12 @@
+1) Version: 14.0.0.1 | Date : 07/12/2020
+-->  Fixed the issue of repair order's status is not clickable.
+-->  Fixed the issues of access rights when user having only technician rights.
+
+2) Version: 14.0.0.2 | Date : 08/12/2020
+-->  Fixed the issue, When rating is not given and click on submit button.
+
+3) Version: 14.0.0.3 | Date : 09/03/2021
+-->  Fixed the issue on click of consume car parts button with user.
+
+3) Version: 14.0.0.4 | Date : 10/03/2021
+-->  Fixed the issue while installing module with bi_machine_repair_management module.

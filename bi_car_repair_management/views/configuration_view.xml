@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <!-- Car Repair Team -->
+        <record id="car_repair_team_form_view" model="ir.ui.view">
+		<field name="name">car.repair.team.form.view</field>
+		<field name="model">car.repair.team</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet string="Car Repair Team">
+					<group>
+						<group>
+							<field name="name" />
+							<field name="is_default_team"/>
+						</group>
+						<group>
+							<field name="leader_id" />
+						</group>
+					</group>
+					<notebook>
+						<page string="Team Members">
+							<field name="team_member_ids" />
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="car_repair_team_tree_view" model="ir.ui.view">
+		<field name="name">car.repair.team.tree.view</field>
+		<field name="model">car.repair.team</field>
+		<field name="arch" type="xml">
+			<tree string="Car Repair Team">
+				<field name="name" />
+				<field name="leader_id" />
+				<field name="is_default_team"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_car_repair_team" model="ir.actions.act_window">
+		<field name="name">Car Repair Team</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.repair.team</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+    <!-- Car Services -->
+        <record id="car_services_form_view" model="ir.ui.view">
+		<field name="name">car.services.form.view</field>
+		<field name="model">car.services</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet string="Car Services">
+					<group>
+						<group>
+							<field name="name" />
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="car_services_tree_view" model="ir.ui.view">
+		<field name="name">car.services.tree.view</field>
+		<field name="model">car.services</field>
+		<field name="arch" type="xml">
+			<tree string="Car Services">
+				<field name="name" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_car_services" model="ir.actions.act_window">
+		<field name="name">Car Services</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.services</field>
+		<field name="view_mode">tree,form</field>
+	</record>	
+	
+	<!-- Car Services Type-->
+        <record id="car_service_type_form_view" model="ir.ui.view">
+		<field name="name">car.service.type.form.view</field>
+		<field name="model">car.service.type</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet string="Car Service Type">
+					<group>
+						<group>
+							<field name="name" />
+							<field name="product_id" required="1"/>
+						</group>
+						<group>
+							<field name="code" />
+							<field name="cost"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<record id="car_service_type_tree_view" model="ir.ui.view">
+		<field name="name">car.service.type.tree.view</field>
+		<field name="model">car.service.type</field>
+		<field name="arch" type="xml">
+			<tree string="Car Service Type">
+				<field name="name" />
+				<field name="code" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_car_service_type" model="ir.actions.act_window">
+		<field name="name">Car Service Type</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">car.service.type</field>
+		<field name="view_mode">tree,form</field>
+	</record>	
+	
+		<menuitem id="main_menu_car_repair" name="Car Repair" />
+		
+		<menuitem id="main_menu_configuration" parent="main_menu_car_repair" name="Configuration" sequence="3" groups="group_car_repair_manager"/>
+		
+		<menuitem id="menu_services" parent="main_menu_configuration" name="Services" action="action_car_services" sequence="1"/>
+		<menuitem id="menu_service_type" parent="main_menu_configuration" name="Service Type" action="action_car_service_type" sequence="2"/>
+		<menuitem id="menu_car_repair_team" parent="main_menu_configuration" name="Car Repair Teams" action="action_car_repair_team" sequence="3"/>
+
+	</data>
+</odoo>
+ 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+	<report id="car_repair_report_id"
+				string="Car Repair"
+				model="car.repair"
+				report_type="qweb-pdf"
+				file="bi_car_repair_management.car_repair_temp_id"
+				name="bi_car_repair_management.car_repair_temp_id"/>	
+							
+	<report id="car_repair_label_report_id"
+				string="Car Label"
+				model="car.repair"
+				report_type="qweb-pdf"
+				file="bi_car_repair_management.car_repair_label_temp_id"
+				name="bi_car_repair_management.car_repair_label_temp_id"/>							
+				
+	</data>
+</odoo>
