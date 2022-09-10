@@ -1,0 +1,30 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_asset_category,account.asset.category,model_account_asset_category,group_account_asset_user,1,0,0,0
+access_account_asset_asset,account.asset.asset,model_account_asset_asset,group_account_asset_user,1,1,1,0
+access_account_asset_asset_product2,account.asset.asset,model_product_product,group_account_asset_user,1,1,1,0
+access_account_asset_asset_product,account.asset.asset,model_product_template,group_account_asset_user,1,1,1,0
+access_account_invoice,account.asset.asset.move,model_account_move,group_account_asset_user,1,0,1,0
+access_account_invoice_line,account.asset.asset.move,model_account_move_line,group_account_asset_user,1,0,1,0
+access_account_asset_category_manager,account.asset.category,model_account_asset_category,group_account_asset_manager,1,1,1,1
+access_account_asset_asset_manager,account.asset.asset,model_account_asset_asset,group_account_asset_manager,1,1,1,1
+access_account_asset_depreciation_line,account.asset.depreciation.line,model_account_asset_depreciation_line,group_account_asset_user,1,1,1,1
+access_account_asset_depreciation_line_manager,account.asset.depreciation.line,model_account_asset_depreciation_line,group_account_asset_manager,1,1,1,1
+access_asset_asset_report,asset.asset.report,model_asset_asset_report,group_account_asset_user,1,0,0,0
+access_account_asset_category_invoicing_payment,account.asset.category,model_account_asset_category,account.group_account_invoice,1,0,0,0
+access_account_asset_asset_invoicing_payment,account.asset.asset,model_account_asset_asset,account.group_account_invoice,1,0,1,0
+access_asset_depreciation_confirmation_wizard,access.asset.depreciation.confirmation.wizard,model_asset_depreciation_confirmation_wizard,group_account_asset_user,1,1,1,1
+,,,,,,,
+account.access_account_move_uinvoice,account.move,account.model_account_move,account.group_account_invoice,1,1,1,0
+account.access_account_move_line_readonly,account.move.line readonly,account.model_account_move_line,account.group_account_readonly,1,0,0,0
+account.access_account_move_line_uinvoice,account.move.line invoice,account.model_account_move_line,account.group_account_invoice,1,0,0,0
+
+account.access_asset_modify,asset.modify,model_asset_modify,group_account_asset_manager,1,1,1,1
+account.access_sell_dispose_process,sell.dispose.process,model_sell_dispose_wizard,,1,1,1,1
+account.access_account_asset_revaluation_manager,account.asset.revaluation.manager,model_account_asset_revaluation,group_account_asset_manager,1,1,1,1
+account.access_account_asset_revaluation_user,account.asset.revaluation.user,model_account_asset_revaluation,group_account_asset_user,1,1,1,0
+account.access_account_asset_enhancement_manager,account.asset.enhancement.manager,model_account_asset_enhancement,group_account_asset_manager,1,1,1,1
+account.access_account_move_manager,account.move.manager,model_account_move,group_account_asset_manager,1,1,1,1
+account.access_account_asset_enhancement_user,account.asset.revaluation.user,model_account_asset_enhancement,group_account_asset_user,1,1,1,0
+
+
+

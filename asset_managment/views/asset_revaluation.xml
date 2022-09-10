@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- asset revaluation form-->
+    <record model="ir.ui.view" id="account_asset_revaluation_form_view">
+        <field name="name">account.asset.revaluation.form</field>
+        <field name="model">account.asset.revaluation</field>
+        <field name="arch" type="xml">
+            <form string="Asset Revaluation">
+                <header>
+                    <button name="set_to_confirm" string="Confirm" type="object" class="oe_highlight"
+                            states="draft" groups="asset_managment.group_account_asset_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="asset_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="asset_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="revaluation_date"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="revaluation_type"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="gross_cost"/>
+                            <field name="depreciated_cost"/>
+                            <field name="current_value"/>
+                            <field name="revalued_value"  attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- asset revaluation tree-->
+    <record model="ir.ui.view" id="account_asset_revaluation_tree_view">
+        <field name="name">account.asset.revaluation.form</field>
+        <field name="model">account.asset.revaluation</field>
+        <field name="arch" type="xml">
+            <tree string="Asset Revaluation">
+                <field name="revaluation_date"/>
+                <field name="asset_id"/>
+                <field name="gross_cost"/>
+                <field name="revalued_value"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- asset revaluation action  -->
+    <record id="account_asset_revaluation_action" model="ir.actions.act_window">
+        <field name="name">Asset Revaluation</field>
+        <field name="res_model">account.asset.revaluation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu For asset revaluation menu    -->
+    <menuitem id="account_asset_revaluation_menu" parent="manin_asset_menu"
+              action="account_asset_revaluation_action" sequence="10"/>
+</odoo>

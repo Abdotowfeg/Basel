@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- asset revaluation form-->
+    <record model="ir.ui.view" id="account_asset_enhancement_form_view">
+        <field name="name">account.asset.enhancement.form</field>
+        <field name="model">account.asset.enhancement</field>
+        <field name="arch" type="xml">
+            <form string="Asset Enhancement">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="asset_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="asset_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="enhancement_date"/>
+                            <field name="enhancement_description"/>
+                            <field name="move_id"/>
+                        </group>
+                        <group>
+                            <field name="gross_cost"/>
+                            <field name="depreciated_cost"/>
+                            <field name="current_value"/>
+                            <field name="revalued_value"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- asset enhancement tree-->
+    <record model="ir.ui.view" id="account_asset_enhancement_tree_view">
+        <field name="name">account.asset.enhancement.form</field>
+        <field name="model">account.asset.enhancement</field>
+        <field name="arch" type="xml">
+            <tree string="Asset Enhancement">
+                <field name="enhancement_date"/>
+                <field name="asset_id"/>
+                <field name="gross_cost"/>
+                <field name="revalued_value"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- asset enhancement action  -->
+    <record id="account_asset_enhancement_action" model="ir.actions.act_window">
+        <field name="name">Asset Enhancement</field>
+        <field name="res_model">account.asset.enhancement</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu For asset enhancement menu    -->
+    <menuitem id="account_asset_enhancement_menu" parent="manin_asset_menu"
+              action="account_asset_enhancement_action" sequence="11"/>
+</odoo>

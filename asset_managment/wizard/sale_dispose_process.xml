@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- sell/dispose wizard  -->
+    <record model="ir.ui.view" id="sell_dispose_wizard_form_view">
+        <field name="name">sell.dispose.wizard.form.view</field>
+        <field name="model">sell.dispose.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sell/Dispose">
+                <field name="needed_account" invisible="1"/>
+                <group col="4">
+                    <group colspan="2" col="2">
+                        <field name="action"/>
+                        <field name="gain_account"
+                               attrs="{'invisible': [('needed_account', '!=', 'gain')],
+                                                       'required': [('needed_account', '=', 'gain')]}"/>
+                    </group>
+                    <group colspan="2" col="2">
+                        <field name="account_move_id" attrs="{'invisible': [('action', '=', 'dispose')],
+                                                               'required': [('action', '=', 'sell')]}"/>
+                        <field name="loss_account"
+                               attrs="{'invisible': [('needed_account', '!=', 'loss')],
+                                                       'required': [('needed_account', '=', 'loss')]}"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="sell_dispose_action" string="Sell/Dispose" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Sell/Dispose action  -->
+    <record id="sell_dispose_wizard_action" model="ir.actions.act_window">
+        <field name="name">Sell/Dispose</field>
+        <field name="res_model">sell.dispose.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
